@@ -30,9 +30,12 @@ export const getList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Blog>({
     endpoint: "blogs",
     queries,
+    customRequestInit: {
+      next: {
+        tags: ["/articles"],
+      },
+    },
   });
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return listData;
 };
@@ -45,9 +48,12 @@ export const getDetail = async (
     endpoint: "blogs",
     contentId,
     queries,
+    customRequestInit: {
+      next: {
+        tags: [`/articles/${contentId}`],
+      },
+    },
   });
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return detailData;
 };
