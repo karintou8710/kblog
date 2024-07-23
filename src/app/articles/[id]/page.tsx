@@ -1,6 +1,21 @@
 import { notFound } from "next/navigation";
 import parse from "html-react-parser";
-import { getDetail } from "@/server/libs/microcms";
+import { getDetail, getList } from "@/server/libs/microcms";
+
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-cache";
+
+export async function generateStaticParams() {
+  const { contents } = await getList();
+
+  const paths = contents.map((post) => {
+    return {
+      id: post.id,
+    };
+  });
+
+  return [...paths];
+}
 
 export default async function StaticDetailPage({
   params: { id },

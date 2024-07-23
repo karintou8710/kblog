@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { getList } from "@/server/libs/microcms";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-cache";
+
 export default async function StaticPage() {
   const { contents } = await getList();
-
   const time = new Date().toLocaleString();
 
   if (!contents || contents.length === 0) {
