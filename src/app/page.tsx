@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getList } from "@/server/libs/microcms";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 export const fetchCache = "force-cache";
 
 export default async function StaticPage() {
