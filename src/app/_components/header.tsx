@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="bg-gray-700 text-white h-14 px-6 flex items-center">
+    <header className="bg-gray-700 text-white h-14 px-6 flex items-center shrink-0">
       <Link className="text-xl font-bold" href="/">
         <span>karintouのブログ</span>
       </Link>
