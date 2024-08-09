@@ -33,7 +33,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
     customRequestInit: {
       cache: "force-cache",
       next: {
-        tags: ["/articles"],
+        tags: ["articles"],
       },
     },
   });
@@ -52,7 +52,7 @@ export const getDetail = async (
     customRequestInit: {
       cache: "force-cache",
       next: {
-        tags: [`/articles/${contentId}`],
+        tags: [`article_${contentId}`],
       },
     },
   });
