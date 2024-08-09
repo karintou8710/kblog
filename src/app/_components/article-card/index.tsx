@@ -15,7 +15,7 @@ export default function ArticleCard({ post, className }: Props) {
   return (
     <Card className={cn('w-[400px]', className)}>
       <Link href={`/articles/${post.id}`} className='relative block h-52'>
-        <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' layout='fill' />
+        <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' fill className='object-cover' />
       </Link>
       <CardHeader>
         <CardTitle>{post.title}</CardTitle>
