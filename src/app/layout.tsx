@@ -4,6 +4,7 @@ import Header from "./_components/header";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
+import Footer from "./_components/footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
