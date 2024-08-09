@@ -27,8 +27,6 @@ export default async function ArticlePage({ params: { id } }: { params: { id: st
     notFound()
   }
 
-  console.log(post.publishedAt)
-
   return (
     <div className='mx-auto my-16 w-[800px]'>
       <div>
