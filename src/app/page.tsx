@@ -13,7 +13,7 @@ export default async function Home() {
   }
 
   return (
-    <section className="container mx-auto mt-16">
+    <section className="container mx-auto my-16">
       <h2 className="text-2xl font-bold py-4">記事一覧</h2>
       {/* TODO: レスポンシブに対応したカード配置 */}
       <div className="flex gap-x-[calc((100%-1200px)/3)] gap-y-8 flex-wrap">
