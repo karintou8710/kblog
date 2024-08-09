@@ -1,7 +1,7 @@
-import parse from 'html-react-parser'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
+import Preview from '@/components/ui/preview'
 import { getReadableDate } from '@/lib/date'
 import { getDetail, getList } from '@/server/libs/microcms'
 
@@ -39,7 +39,7 @@ export default async function ArticlePage({ params: { id } }: { params: { id: st
 
       <div className='my-6 border' />
 
-      <div className='mt-8'>{parse(post.content ?? '')}</div>
+      <Preview content={post.content ?? ''} className='mt-8' />
     </div>
   )
 }
