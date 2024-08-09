@@ -10,11 +10,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "html-react-parser": "^5.1.12",
+    "lucide-react": "^0.426.0",
     "microcms-js-sdk": "^3.1.2",
     "next": "^14.2.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
