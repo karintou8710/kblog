@@ -5,7 +5,7 @@ export const fetchCache = 'force-cache'
 
 export default async function Home() {
   return (
-    <div className='container mx-auto my-16'>
+    <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
       <ArticleList />
     </div>
   )

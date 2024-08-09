@@ -1,5 +1,6 @@
 import { getList } from '@/server/libs/microcms'
 
+import styles from './index.module.css'
 import ArticleCard from '../article-card'
 
 export default async function ArticleList() {
@@ -10,10 +11,10 @@ export default async function ArticleList() {
   }
 
   return (
-    <section>
+    <section className={styles.articleList}>
       <h2 className='py-4 text-2xl font-bold'>記事一覧</h2>
       {/* TODO: レスポンシブに対応したカード配置 */}
-      <div className='flex flex-wrap gap-x-[calc((100%-1200px)/3)] gap-y-8'>
+      <div className='mx-auto flex flex-wrap gap-x-3 gap-y-8'>
         {contents.map((post) => {
           return <ArticleCard key={post.id} post={post} className='shrink-0' />
         })}
