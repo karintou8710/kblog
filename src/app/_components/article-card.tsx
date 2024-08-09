@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getReadableDate } from "@/lib/date";
 import { cn } from "@/lib/utils";
 import { Blog } from "@/server/libs/microcms";
 import Image from "next/image";
@@ -23,7 +24,9 @@ export default function ArticleCard({ post, className }: Props) {
       </Link>
       <CardHeader>
         <CardTitle>{post.title}</CardTitle>
-        <CardDescription>{post.publishedAt}</CardDescription>
+        <CardDescription>
+          {getReadableDate(new Date(post.publishedAt!))}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <p>Card Content</p>
