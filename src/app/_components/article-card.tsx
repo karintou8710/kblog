@@ -28,9 +28,6 @@ export default function ArticleCard({ post, className }: Props) {
           {getReadableDate(new Date(post.publishedAt!))}
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <p>Card Content</p>
-      </CardContent>
     </Card>
   );
 }
