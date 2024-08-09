@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidateTag } from "next/cache";
+import { revalidateArticle } from "@/server/libs/revalidate";
 
 export async function POST(request: NextRequest) {
   try {
     const { id }: { id?: any } = await request.json();
 
     if (typeof id === "string") {
-      revalidateTag(`article_${id}`);
-      revalidateTag("articles");
+      revalidateArticle(id);
     }
     return NextResponse.json({ message: "revalidate articles" });
   } catch {
