@@ -31,7 +31,7 @@ export default async function ArticlePage({
   return (
     <div>
       <h1>{post.title}</h1>
-      <div>{parse(post.content)}</div>
+      <div>{parse(post.content ?? "")}</div>
     </div>
   );
 }
