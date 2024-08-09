@@ -18,7 +18,9 @@ export default function ArticleCard({ post, className }: Props) {
         <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' fill className='object-cover' />
       </Link>
       <CardHeader>
-        <CardTitle>{post.title}</CardTitle>
+        <Link href={`/articles/${post.id}`}>
+          <CardTitle className='hover:underline'>{post.title}</CardTitle>
+        </Link>
         <CardDescription>{getReadableDate(new Date(post.publishedAt!))}</CardDescription>
       </CardHeader>
     </Card>
