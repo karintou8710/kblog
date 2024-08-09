@@ -4,9 +4,8 @@ import { getList } from "@/server/libs/microcms";
 export const dynamic = "force-static";
 export const fetchCache = "force-cache";
 
-export default async function StaticPage() {
+export default async function Home() {
   const { contents } = await getList();
-  const time = new Date().toLocaleString();
 
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>;
@@ -14,7 +13,6 @@ export default async function StaticPage() {
 
   return (
     <div>
-      <h1>{time}</h1>
       <ul>
         {contents.map((post) => {
           return (

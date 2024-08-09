@@ -17,13 +17,12 @@ export async function generateStaticParams() {
   return [...paths];
 }
 
-export default async function StaticDetailPage({
+export default async function ArticlePage({
   params: { id },
 }: {
   params: { id: string };
 }) {
   const post = await getDetail(id);
-  const time = new Date().toLocaleString();
 
   if (!post) {
     notFound();
@@ -32,7 +31,6 @@ export default async function StaticDetailPage({
   return (
     <div>
       <h1>{post.title}</h1>
-      <h2>{time}</h2>
       <div>{parse(post.content)}</div>
     </div>
   );
