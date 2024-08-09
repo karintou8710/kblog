@@ -33,7 +33,7 @@ export default async function ArticlePage({
     <div className="w-[800px] mx-auto my-16">
       <div>
         <Image
-          src={post.eyecatch!.url}
+          src={post.eyecatch?.url ?? ""}
           alt="eyecatch"
           width={600}
           height={300}
