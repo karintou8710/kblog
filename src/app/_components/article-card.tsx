@@ -19,7 +19,7 @@ type Props = {
 export default function ArticleCard({ post, className }: Props) {
   return (
     <Card className={cn("w-[400px]", className)}>
-      <Link href={`/articles/${post.id}`} className="block relative h-64">
+      <Link href={`/articles/${post.id}`} className="block relative h-52">
         <Image src={post.eyecatch?.url!} alt="eyecatch" layout="fill" />
       </Link>
       <CardHeader>
