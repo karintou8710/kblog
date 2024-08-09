@@ -1,4 +1,3 @@
-
 import { getList } from '@/server/libs/microcms'
 
 import ArticleCard from './_components/article-card'
