@@ -28,16 +28,12 @@ export default async function ArticlePage({ params: { id } }: { params: { id: st
   }
 
   return (
-    <div className='mx-auto my-16 w-[800px]'>
+    <div className='mx-auto my-8 px-4 md:my-16 md:w-[750px] md:p-0'>
       <div>
-        <Image
-          src={post.eyecatch?.url ?? ''}
-          alt='eyecatch'
-          width={600}
-          height={300}
-          className='mx-auto'
-        />
-        <h1 className='mt-16 text-3xl font-bold'>{post.title}</h1>
+        <div className='relative mx-auto aspect-video w-full'>
+          <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' fill className='object-cover' />
+        </div>
+        <h1 className='mt-8 text-3xl font-bold md:mt-16'>{post.title}</h1>
         <p className='mt-6'>公開日: {getReadableDate(new Date(post.publishedAt!))}</p>
       </div>
 
