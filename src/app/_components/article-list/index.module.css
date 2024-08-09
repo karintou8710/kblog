@@ -1,0 +1,21 @@
+.articleList {
+  margin: 0 auto;
+}
+
+@media (1224px < width) {
+  .articleList {
+    width: 1224px;
+  }
+}
+
+@media (824px <= width < 1224px) {
+  .articleList {
+    width: 824px;
+  }
+}
+
+@media (width < 824px) {
+  .articleList {
+    width: 320px;
+  }
+}

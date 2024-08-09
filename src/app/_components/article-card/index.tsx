@@ -13,12 +13,14 @@ type Props = {
 
 export default function ArticleCard({ post, className }: Props) {
   return (
-    <Card className={cn('w-[400px]', className)}>
-      <Link href={`/articles/${post.id}`} className='relative block h-52'>
-        <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' layout='fill' />
+    <Card className={cn('w-[320px] sm:w-[400px]', className)}>
+      <Link href={`/articles/${post.id}`} className='relative block aspect-video'>
+        <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' fill className='object-cover' />
       </Link>
       <CardHeader>
-        <CardTitle>{post.title}</CardTitle>
+        <Link href={`/articles/${post.id}`}>
+          <CardTitle className='hover:underline'>{post.title}</CardTitle>
+        </Link>
         <CardDescription>{getReadableDate(new Date(post.publishedAt!))}</CardDescription>
       </CardHeader>
     </Card>
