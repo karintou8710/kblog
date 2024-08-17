@@ -34,7 +34,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
     queries,
     customRequestInit: {
       next: {
-        tags: ['articles'],
+        tags: ['articles', 'tags'],
       },
     },
   })
@@ -49,7 +49,7 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
     queries,
     customRequestInit: {
       next: {
-        tags: [`article_${contentId}`],
+        tags: [`article_${contentId}`, 'tags'],
       },
     },
   })
