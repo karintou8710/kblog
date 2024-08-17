@@ -2,12 +2,17 @@ import { createClient } from 'microcms-js-sdk'
 
 import type { MicroCMSQueries, MicroCMSImage, MicroCMSDate } from 'microcms-js-sdk'
 
-//ブログの型定義
+export type Tag = {
+  id: string
+  name: string
+} & MicroCMSDate
+
 export type Blog = {
   id: string
   title: string
-  content?: string
-  eyecatch?: MicroCMSImage
+  content: string
+  eyecatch: MicroCMSImage
+  tags: Tag[]
 } & MicroCMSDate
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -28,7 +33,6 @@ export const getList = async (queries?: MicroCMSQueries) => {
     endpoint: 'blogs',
     queries,
     customRequestInit: {
-      cache: 'force-cache',
       next: {
         tags: ['articles'],
       },
@@ -44,7 +48,6 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
     contentId,
     queries,
     customRequestInit: {
-      cache: 'force-cache',
       next: {
         tags: [`article_${contentId}`],
       },

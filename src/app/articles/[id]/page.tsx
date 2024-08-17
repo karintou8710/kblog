@@ -5,9 +5,6 @@ import Preview from '@/components/ui/preview'
 import { getReadableDate } from '@/lib/date'
 import { getDetail, getList } from '@/server/libs/microcms'
 
-export const dynamic = 'force-static'
-export const fetchCache = 'force-cache'
-
 export async function generateStaticParams() {
   const { contents } = await getList()
 
@@ -35,6 +32,16 @@ export default async function ArticlePage({ params: { id } }: { params: { id: st
         </div>
         <h1 className='mt-8 text-3xl font-bold md:mt-16'>{post.title}</h1>
         <p className='mt-6'>公開日: {getReadableDate(new Date(post.publishedAt!))}</p>
+        <div className='mt-6 flex flex-wrap gap-2'>
+          {post.tags.map((tag) => (
+            <span
+              key={tag.id}
+              className='rounded-full bg-blue-400 px-4 py-2 text-sm font-bold text-white'
+            >
+              {tag.name}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className='my-6 border' />
