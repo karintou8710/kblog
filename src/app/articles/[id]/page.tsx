@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
+import { LinkBadge } from '@/components/ui/link-badge'
 import Preview from '@/components/ui/preview'
 import { getReadableDate } from '@/lib/date'
 import { getDetail, getList } from '@/server/libs/microcms'
@@ -34,12 +35,9 @@ export default async function ArticlePage({ params: { id } }: { params: { id: st
         <p className='mt-6'>公開日: {getReadableDate(new Date(post.publishedAt!))}</p>
         <div className='mt-6 flex flex-wrap gap-2'>
           {post.tags.map((tag) => (
-            <span
-              key={tag.id}
-              className='rounded-full bg-blue-400 px-4 py-2 text-sm font-bold text-white'
-            >
+            <LinkBadge key={tag.id} href={`/tags/${tag.name}`}>
               {tag.name}
-            </span>
+            </LinkBadge>
           ))}
         </div>
       </div>
