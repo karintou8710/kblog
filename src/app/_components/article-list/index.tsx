@@ -1,4 +1,4 @@
-import { getList } from '@/server/libs/microcms'
+import { getListWithPagination } from '@/server/libs/microcms'
 
 import styles from './index.module.css'
 import ArticleCard from '../article-card'
@@ -8,7 +8,7 @@ type Props = {
 }
 
 export default async function ArticleList({ page }: Props) {
-  const { contents } = await getList(page)
+  const { contents } = await getListWithPagination(page)
 
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>
