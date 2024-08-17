@@ -3,8 +3,12 @@ import { getList } from '@/server/libs/microcms'
 import styles from './index.module.css'
 import ArticleCard from '../article-card'
 
-export default async function ArticleList() {
-  const { contents } = await getList()
+type Props = {
+  page: number
+}
+
+export default async function ArticleList({ page }: Props) {
+  const { contents } = await getList(page)
 
   if (!contents || contents.length === 0) {
     return <h1>No contents</h1>
