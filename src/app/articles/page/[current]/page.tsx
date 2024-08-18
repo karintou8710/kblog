@@ -1,5 +1,5 @@
-import ArticlePagination from '@/features/article/components/article-pagination'
-import { getList, PER_PAGE } from '@/features/article/server/microcms'
+import ArticlePaginationFetcher from '@/features/article/components/article-pagination/fetcher'
+import { getList, getListWithPagination, PER_PAGE } from '@/features/article/server/microcms'
 import { getPageNumber } from '@/lib/utils'
 
 import ArticleListSection from './_components/article-list-section'
@@ -25,7 +25,12 @@ export default function Page({ params: { current } }: Props) {
   return (
     <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
       <ArticleListSection page={page} />
-      <ArticlePagination currentPage={page} className='mt-16' />
+      <ArticlePaginationFetcher
+        fetcher={getListWithPagination(page)}
+        currentPage={page}
+        href='/articles/'
+        className='mt-16'
+      />
     </div>
   )
 }
