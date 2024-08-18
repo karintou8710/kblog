@@ -48,7 +48,7 @@ export const getList = async (queries?: MicroCMSQueries) => {
 }
 
 export const getListWithPagination = async (page: number, queries?: MicroCMSQueries) => {
-  const limit = 2
+  const limit = 9
   const listData = await client.getList<Blog>({
     endpoint: 'blogs',
     queries: { ...queries, offset: (page - 1) * limit, limit: limit },
