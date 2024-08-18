@@ -10,7 +10,7 @@ type Props = {
   className?: string
 }
 
-export default function ArticleHeader({ post, className }: Props) {
+export default function ArticleDetailHeader({ post, className }: Props) {
   return (
     <div className={className}>
       <div className='relative mx-auto aspect-video w-full'>

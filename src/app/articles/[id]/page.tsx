@@ -1,4 +1,4 @@
-import Article from '@/features/article/components/article'
+import ArticleDetail from '@/features/article/components/article-detail'
 import { getList } from '@/features/article/server/microcms'
 
 export async function generateStaticParams() {
@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 export default async function ArticlePage({ params: { id } }: { params: { id: string } }) {
   return (
     <>
-      <Article id={id} className='mx-auto my-8 md:my-16' />
+      <ArticleDetail id={id} className='mx-auto my-8 md:my-16' />
     </>
   )
 }

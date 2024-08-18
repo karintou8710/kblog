@@ -5,6 +5,6 @@ type Props = {
   className?: string
 }
 
-export default function ArticleMain({ content, className }: Props) {
+export default function ArticleDetailMain({ content, className }: Props) {
   return <MarkdownView content={content} className={className} />
 }

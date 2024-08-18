@@ -2,14 +2,14 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 import { Button } from '@/components/ui/button'
-import ArticleListContainer from '@/features/article/components/article-list-container'
 import ArticleListSkelton from '@/features/article/components/article-list-skelton'
+import ArticleListWrapper from '@/features/article/components/article-list-wrapper'
 
 import ArticleListPickup from '../article-list-pickup'
 
 export default function ArticleListSection() {
   return (
-    <ArticleListContainer>
+    <ArticleListWrapper>
       <h2 className='py-4 text-2xl font-bold'>最新の記事</h2>
       <Suspense fallback={<ArticleListSkelton n={3} />}>
         <ArticleListPickup />
@@ -19,6 +19,6 @@ export default function ArticleListSection() {
           <Link href='/articles'>全ての記事</Link>
         </Button>
       </div>
-    </ArticleListContainer>
+    </ArticleListWrapper>
   )
 }
