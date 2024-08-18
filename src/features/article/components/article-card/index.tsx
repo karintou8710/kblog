@@ -26,7 +26,7 @@ export default function ArticleCard({ post, className }: Props) {
         <CardDescription>{getReadableDate(new Date(post.publishedAt!))}</CardDescription>
         <div className='mt-6 flex flex-wrap gap-2'>
           {post.tags.map((tag) => (
-            <LinkBadge key={tag.id} href={`/tags/${tag.name}`}>
+            <LinkBadge key={tag.id} href={`/tags/${tag.id}`}>
               {tag.name}
             </LinkBadge>
           ))}
