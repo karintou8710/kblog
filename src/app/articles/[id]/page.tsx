@@ -1,6 +1,5 @@
-import { getList } from '@/server/libs/microcms'
-
-import Article from './_components/article'
+import { getList } from '@/features/article/api/microcms'
+import Article from '@/features/article/components/article'
 
 export async function generateStaticParams() {
   const { contents } = await getList()

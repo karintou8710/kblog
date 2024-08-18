@@ -1,4 +1,4 @@
-import ArticleList from './_components/article-list'
+import ArticleList from '@/features/article/components/article-list'
 
 export default async function Home() {
   return (

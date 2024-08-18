@@ -5,6 +5,6 @@ type Props = {
   className?: string
 }
 
-export default function Preview({ content, className }: Props) {
+export default function MarkdownView({ content, className }: Props) {
   return <div className={className}>{parse(content)}</div>
 }

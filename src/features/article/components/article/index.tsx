@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation'
 
+import { getDetail } from '@/features/article/api/microcms'
 import { cn } from '@/lib/utils'
-import { getDetail } from '@/server/libs/microcms'
 
 import ArticleHeader from '../article-header'
-import { ArticleMain } from '../article-main'
+import ArticleMain from '../article-main'
 
 type Props = {
   id: string

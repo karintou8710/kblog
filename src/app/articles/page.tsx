@@ -1,7 +1,6 @@
+import ArticleList from '@/features/article/components/article-list'
+import ArticlePagination from '@/features/article/components/article-pagination'
 import { getPageNumber } from '@/lib/utils'
-
-import ArticlePagination from './_components/article-pagination'
-import ArticleList from '../_components/article-list'
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined }

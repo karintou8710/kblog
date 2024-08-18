@@ -1,19 +1,8 @@
 import { createClient } from 'microcms-js-sdk'
 
-import type { MicroCMSQueries, MicroCMSImage, MicroCMSDate } from 'microcms-js-sdk'
+import { Blog } from '../types/microcms'
 
-export type Tag = {
-  id: string
-  name: string
-} & MicroCMSDate
-
-export type Blog = {
-  id: string
-  title: string
-  content: string
-  eyecatch: MicroCMSImage
-  tags: Tag[]
-} & MicroCMSDate
+import type { MicroCMSQueries } from 'microcms-js-sdk'
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
   throw new Error('MICROCMS_SERVICE_DOMAIN is required')

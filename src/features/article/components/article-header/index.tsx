@@ -2,7 +2,8 @@ import Image from 'next/image'
 
 import { LinkBadge } from '@/components/ui/link-badge'
 import { getReadableDate } from '@/lib/date'
-import { Blog } from '@/server/libs/microcms'
+
+import type { Blog } from '../../types/microcms'
 
 type Props = {
   post: Blog

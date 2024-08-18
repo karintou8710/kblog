@@ -1,4 +1,4 @@
-import { getListWithPagination } from '@/server/libs/microcms'
+import { getListWithPagination } from '@/features/article/api/microcms'
 
 import styles from './index.module.css'
 import ArticleCard from '../article-card'
