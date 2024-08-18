@@ -6,6 +6,6 @@ type Props = {
   children?: ReactNode
 }
 
-export default function ArticleListContainer({ children }: Props) {
+export default function ArticleListWrapper({ children }: Props) {
   return <section className={styles.articleList}>{children}</section>
 }

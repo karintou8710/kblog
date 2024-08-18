@@ -1,3 +1,5 @@
+import path from 'path'
+
 import {
   Pagination,
   PaginationContent,
@@ -5,25 +7,30 @@ import {
   PaginationLink,
 } from '@/components/ui/pagination'
 
-import { getListWithPagination } from '../../server/microcms'
-
 type Props = {
+  totalPage: number
   currentPage: number
+  href: string
   className?: string
 }
 
-export default async function ArticlePagination({ currentPage, className }: Props) {
-  const { totalCount, limit } = await getListWithPagination(currentPage)
-  const totalPage = Math.ceil(totalCount / limit)
-
+export default async function ArticlePagination({
+  currentPage,
+  className,
+  href,
+  totalPage,
+}: Props) {
   return (
     <Pagination className={className}>
       <PaginationContent>
-        {new Array(totalPage).fill(0).map((_, index) => {
+        {Array.from({ length: totalPage }).map((_, index) => {
           const page = index + 1
           return (
             <PaginationItem key={page}>
-              <PaginationLink href={`/articles?page=${page}`} isActive={page === currentPage}>
+              <PaginationLink
+                href={path.join(href, `page/${page}`)}
+                isActive={page === currentPage}
+              >
                 {page}
               </PaginationLink>
             </PaginationItem>

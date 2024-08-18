@@ -17,6 +17,8 @@ export const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY,
 })
 
+export const PER_PAGE = 9
+
 export const getLatestPickup = async () => {
   const listData = await client.getList<Blog>({
     endpoint: 'blogs',
@@ -48,10 +50,9 @@ export const getList = async (queries?: MicroCMSQueries) => {
 }
 
 export const getListWithPagination = async (page: number, queries?: MicroCMSQueries) => {
-  const limit = 9
   const listData = await client.getList<Blog>({
     endpoint: 'blogs',
-    queries: { ...queries, offset: (page - 1) * limit, limit: limit },
+    queries: { ...queries, offset: (page - 1) * PER_PAGE, limit: PER_PAGE },
     customRequestInit: {
       next: {
         tags: ['articles', 'tags'],
@@ -75,6 +76,20 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
   })
 
   return detailData
+}
+
+export const getTagsList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Tag>({
+    endpoint: 'tags',
+    queries,
+    customRequestInit: {
+      next: {
+        tags: ['tags'],
+      },
+    },
+  })
+
+  return listData
 }
 
 export const getTagsDetail = async (tagId: string, queries?: MicroCMSQueries) => {
