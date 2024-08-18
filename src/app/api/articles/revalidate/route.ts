@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ZodError } from 'zod'
 
-import { revalidateArticle } from '@/server/libs/revalidate'
-import { articleRevalidateSchema } from '@/server/libs/schema'
+import { articleRevalidateSchema } from '@/features/article/lib/schema'
+import { revalidateArticle } from '@/features/article/server/revalidate'
 
 export async function POST(request: NextRequest) {
   try {

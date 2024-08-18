@@ -2,9 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { LinkBadge } from '@/components/ui/link-badge'
 import { getReadableDate } from '@/lib/date'
 import { cn } from '@/lib/utils'
-import { Blog } from '@/server/libs/microcms'
+
+import type { Blog } from '../../types/microcms'
 
 type Props = {
   post: Blog
@@ -22,6 +24,13 @@ export default function ArticleCard({ post, className }: Props) {
           <CardTitle className='hover:underline'>{post.title}</CardTitle>
         </Link>
         <CardDescription>{getReadableDate(new Date(post.publishedAt!))}</CardDescription>
+        <div className='mt-6 flex flex-wrap gap-2'>
+          {post.tags.map((tag) => (
+            <LinkBadge key={tag.id} href={`/tags/${tag.id}`}>
+              {tag.name}
+            </LinkBadge>
+          ))}
+        </div>
       </CardHeader>
     </Card>
   )
