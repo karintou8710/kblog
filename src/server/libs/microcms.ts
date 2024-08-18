@@ -28,6 +28,22 @@ export const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY,
 })
 
+export const getLatestPickup = async () => {
+  const listData = await client.getList<Blog>({
+    endpoint: 'blogs',
+    queries: {
+      limit: 3,
+    },
+    customRequestInit: {
+      next: {
+        tags: ['articles', 'tags'],
+      },
+    },
+  })
+
+  return listData
+}
+
 export const getList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Blog>({
     endpoint: 'blogs',
