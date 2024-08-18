@@ -5,7 +5,7 @@ import {
   PaginationLink,
 } from '@/components/ui/pagination'
 
-import { getListWithPagination } from '../..//api/microcms'
+import { getListWithPagination } from '../../server/microcms'
 
 type Props = {
   currentPage: number

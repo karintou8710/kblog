@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { getDetail } from '@/features/article/api/microcms'
+import { getDetail } from '@/features/article/server/microcms'
 import { cn } from '@/lib/utils'
 
 import ArticleHeader from '../article-header'

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-import { revalidateTags } from '@/features/article/lib/revalidate'
+import { revalidateTags } from '@/features/article/server/revalidate'
 
 export async function POST(request: NextRequest) {
   revalidateTags()
