@@ -20,7 +20,7 @@ export default function ArticleHeader({ post, className }: Props) {
       <p className='mt-6'>公開日: {getReadableDate(new Date(post.publishedAt!))}</p>
       <div className='mt-6 flex flex-wrap gap-2'>
         {post.tags.map((tag) => (
-          <LinkBadge key={tag.id} href={`/tags/${tag.name}`}>
+          <LinkBadge key={tag.id} href={`/tags/${tag.id}`}>
             {tag.name}
           </LinkBadge>
         ))}
