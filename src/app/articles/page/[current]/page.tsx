@@ -2,7 +2,7 @@ import ArticlePagination from '@/features/article/components/article-pagination'
 import { getList, PER_PAGE } from '@/features/article/server/microcms'
 import { getPageNumber } from '@/lib/utils'
 
-import ArticleListSection from '../../_components/article-list-section'
+import ArticleListSection from './_components/article-list-section'
 
 type Props = {
   params: { current: string }
