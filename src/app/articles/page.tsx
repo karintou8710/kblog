@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation'
+import ArticleListPage from './page/[current]/page'
 
 export default function Page() {
-  redirect('/articles/page/1')
+  return <ArticleListPage params={{ current: '1' }} />
 }
