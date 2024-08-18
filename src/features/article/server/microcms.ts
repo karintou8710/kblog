@@ -1,6 +1,6 @@
 import { createClient } from 'microcms-js-sdk'
 
-import { Blog } from '../types/microcms'
+import { Blog, Tag } from '../types/microcms'
 
 import type { MicroCMSQueries } from 'microcms-js-sdk'
 
@@ -70,6 +70,21 @@ export const getDetail = async (contentId: string, queries?: MicroCMSQueries) =>
     customRequestInit: {
       next: {
         tags: [`article_${contentId}`, 'tags'],
+      },
+    },
+  })
+
+  return detailData
+}
+
+export const getTagsDetail = async (tagId: string, queries?: MicroCMSQueries) => {
+  const detailData = await client.getListDetail<Tag>({
+    endpoint: 'tags',
+    contentId: tagId,
+    queries,
+    customRequestInit: {
+      next: {
+        tags: [`tag_${tagId}`, 'tags'],
       },
     },
   })

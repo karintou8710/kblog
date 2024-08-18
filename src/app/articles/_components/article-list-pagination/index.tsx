@@ -8,5 +8,5 @@ type Props = {
 export default async function ArticleListPagination({ page }: Props) {
   const { contents } = await getListWithPagination(page)
 
-  return <ArticleList articles={contents} />
+  return <ArticleList articles={contents} title='記事一覧' />
 }

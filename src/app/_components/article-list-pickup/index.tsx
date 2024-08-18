@@ -9,7 +9,7 @@ export default async function ArticleListPickup() {
 
   return (
     <div>
-      <ArticleList articles={contents} />
+      <ArticleList articles={contents} title='最新の記事' />
       <div className='mt-16 text-center'>
         <Button variant='default' size='lg' asChild>
           <Link href='/articles'>全ての記事</Link>

@@ -1,5 +1,5 @@
 import ArticleList from '@/features/article/components/article-list'
-import { getListWithPagination } from '@/features/article/server/microcms'
+import { getListWithPagination, getTagsDetail } from '@/features/article/server/microcms'
 
 type Props = {
   page: number
@@ -7,13 +7,16 @@ type Props = {
 }
 
 export default async function ArticleListFilterByTag({ page, tagId }: Props) {
-  const { contents } = await getListWithPagination(page, {
-    filters: `tags[contains]${tagId}`,
-  })
+  const [{ contents }, tag] = await Promise.all([
+    getListWithPagination(page, {
+      filters: `tags[contains]${tagId}`,
+    }),
+    getTagsDetail(tagId),
+  ])
 
   return (
     <div>
-      <ArticleList articles={contents} />
+      <ArticleList articles={contents} title={`「${tag.name}」の記事一覧`} />
     </div>
   )
 }
