@@ -1,6 +1,6 @@
 import { getPageNumber } from '@/lib/utils'
 
-import ArticleListFilterByTag from './_components/article-list-filter-by-tag'
+import ArticleListSection from './_components/article-list-section'
 
 type Props = {
   params: { id: string }
@@ -12,7 +12,7 @@ export default async function Page({ params: { id }, searchParams }: Props) {
 
   return (
     <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
-      <ArticleListFilterByTag page={page} tagId={id} />
+      <ArticleListSection page={page} tagId={id} />
     </div>
   )
 }
