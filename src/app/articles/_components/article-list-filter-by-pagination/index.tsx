@@ -5,8 +5,8 @@ type Props = {
   page: number
 }
 
-export default async function ArticleListPagination({ page }: Props) {
+export default async function ArticleListFilterByPagination({ page }: Props) {
   const { contents } = await getListWithPagination(page)
 
-  return <ArticleList articles={contents} title='記事一覧' />
+  return <ArticleList articles={contents} />
 }
