@@ -1,13 +1,6 @@
-import ArticlePaginationFetcher from '@/features/article/components/article-pagination/fetcher'
-import {
-  getList,
-  getListWithPagination,
-  getTagsList,
-  PER_PAGE,
-} from '@/features/article/server/microcms'
-import { getPageNumber } from '@/lib/utils'
+import { getList, getTagsList, PER_PAGE } from '@/features/article/server/microcms'
 
-import ArticleListSection from './_components/article-list-section'
+import PageView from './page-view'
 
 type Params = Promise<{ tagId: string; current: string }>
 
@@ -31,19 +24,7 @@ export async function generateStaticParams() {
 
 export default async function Page(props: { params: Params }) {
   const params = await props.params
-  const page = getPageNumber(Number(params.current))
+  const current = Number(params.current)
 
-  return (
-    <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
-      <ArticleListSection page={page} tagId={params.tagId} />
-      <ArticlePaginationFetcher
-        fetcher={getListWithPagination(page, {
-          filters: `tags[contains]${params.tagId}`,
-        })}
-        currentPage={page}
-        href={`/tags/${params.tagId}/`}
-        className='mt-16'
-      />
-    </div>
-  )
+  return <PageView tagId={params.tagId} current={current} />
 }

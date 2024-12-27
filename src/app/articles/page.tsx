@@ -1,5 +1,5 @@
-import ArticleListPage from './page/[current]/page'
+import { redirect } from 'next/navigation'
 
 export default function Page() {
-  return <ArticleListPage params={new Promise((resolve) => resolve({ current: '1' }))} />
+  redirect('/articles/page/1')
 }
