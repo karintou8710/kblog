@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+import { Noto_Sans_JP } from 'next/font/google'
 
 import { cn } from '@/lib/utils'
 
@@ -8,7 +8,7 @@ import './globals.css'
 
 import type { Metadata } from 'next'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
+const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], variable: '--font-noto-sans-jp' })
 
 export const metadata: Metadata = {
   title: 'Home | Karintou Blog',
@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={cn(
           'flex min-h-screen flex-col bg-background font-sans antialiased',
-          inter.variable,
+          notoSansJP.variable,
         )}
       >
         <Header />
