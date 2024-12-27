@@ -1,10 +1,8 @@
 import { getTagsList } from '@/features/article/server/microcms'
 
-import ArticleListFilterByTagPage from './page//[current]/page'
+import ArticleListFilterByTagPage from './page/[current]/page'
 
-type Props = {
-  params: { tagId: string }
-}
+type Params = Promise<{ tagId: string }>
 
 export async function generateStaticParams() {
   const { contents: tags } = await getTagsList()
@@ -18,6 +16,12 @@ export async function generateStaticParams() {
   return paths
 }
 
-export default function Page({ params: { tagId } }: Props) {
-  return <ArticleListFilterByTagPage params={{ current: '1', tagId: tagId }} />
+export default async function Page(props: { params: Params }) {
+  const params = await props.params
+
+  return (
+    <ArticleListFilterByTagPage
+      params={new Promise((resolve) => resolve({ current: '1', tagId: params.tagId }))}
+    />
+  )
 }

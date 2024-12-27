@@ -4,9 +4,7 @@ import { getPageNumber } from '@/lib/utils'
 
 import ArticleListSection from './_components/article-list-section'
 
-type Props = {
-  params: { current: string }
-}
+type Params = Promise<{ current: string }>
 
 export async function generateStaticParams() {
   const { totalCount } = await getList()
@@ -19,8 +17,9 @@ export async function generateStaticParams() {
   return paths
 }
 
-export default function Page({ params: { current } }: Props) {
-  const page = getPageNumber(Number(current))
+export default async function Page(props: { params: Params }) {
+  const params = await props.params
+  const page = getPageNumber(Number(params.current))
 
   return (
     <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
