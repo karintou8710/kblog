@@ -28,9 +28,17 @@
         "newlines-between": "always",
         "pathGroupsExcludedImportTypes": ["builtin"],
         "warnOnUnassignedImports": true,
-        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
         "pathGroups": []
       }
     ]
+  },
+  "settings": {
+    "tailwindcss": {
+      "callees": ["cn"]
+    }
   }
 }

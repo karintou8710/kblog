@@ -19,7 +19,7 @@ export default async function ArticleDetail({ id, className }: Props) {
   }
 
   return (
-    <div className={cn('px-4 md:p-0 md:w-[750px]', className)}>
+    <div className={cn('px-4 md:w-[750px] md:p-0', className)}>
       <ArticleDetailHeader post={post} />
       <div className='my-6 border' />
       <ArticleDetailMain content={post.content} className='mt-8' />

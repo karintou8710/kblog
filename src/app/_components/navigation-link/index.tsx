@@ -19,7 +19,7 @@ export default function NavigationLink({ href, label, className }: Props) {
     <Link
       href={href}
       className={cn(
-        'block py-1 px-1 hover:opacity-80 font-bold',
+        'block p-1 font-bold hover:opacity-80',
         isSamePath && 'border-b-4 border-orange-500',
       )}
     >
