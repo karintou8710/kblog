@@ -1,6 +1,8 @@
 import ArticleDetail from '@/features/article/components/article-detail'
 import { getList } from '@/features/article/server/microcms'
 
+type Params = Promise<{ id: string }>
+
 export async function generateStaticParams() {
   const { contents } = await getList()
 
@@ -13,10 +15,12 @@ export async function generateStaticParams() {
   return paths
 }
 
-export default async function ArticlePage({ params: { id } }: { params: { id: string } }) {
+export default async function ArticlePage(props: { params: Params }) {
+  const params = await props.params
+
   return (
     <>
-      <ArticleDetail id={id} className='mx-auto my-8 md:my-16' />
+      <ArticleDetail id={params.id} className='mx-auto my-8 md:my-16' />
     </>
   )
 }

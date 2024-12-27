@@ -9,9 +9,7 @@ import { getPageNumber } from '@/lib/utils'
 
 import ArticleListSection from './_components/article-list-section'
 
-type Props = {
-  params: { tagId: string; current: string }
-}
+type Params = Promise<{ tagId: string; current: string }>
 
 export async function generateStaticParams() {
   const { contents: tags } = await getTagsList()
@@ -31,18 +29,19 @@ export async function generateStaticParams() {
   return (await Promise.all(pathsPromise)).flat()
 }
 
-export default async function Page({ params: { tagId, current } }: Props) {
-  const page = getPageNumber(Number(current))
+export default async function Page(props: { params: Params }) {
+  const params = await props.params
+  const page = getPageNumber(Number(params.current))
 
   return (
     <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
-      <ArticleListSection page={page} tagId={tagId} />
+      <ArticleListSection page={page} tagId={params.tagId} />
       <ArticlePaginationFetcher
         fetcher={getListWithPagination(page, {
-          filters: `tags[contains]${tagId}`,
+          filters: `tags[contains]${params.tagId}`,
         })}
         currentPage={page}
-        href={`/tags/${tagId}/`}
+        href={`/tags/${params.tagId}/`}
         className='mt-16'
       />
     </div>
