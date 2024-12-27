@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 
+import Navigation from '../navigation'
+
 export default function Header() {
   return (
     <header className='flex h-14 shrink-0 items-center bg-gray-700 px-6 text-white'>
@@ -10,13 +12,14 @@ export default function Header() {
         <span>karintouのブログ</span>
       </Link>
       <div className='flex-1' />
-      <nav>
+      <Navigation className='mr-10' />
+      <div>
         <Button variant='icon' size='icon' asChild>
           <Link href='https://github.com/karintou8710' target='_blank'>
             <GitHubLogoIcon className='size-6' />
           </Link>
         </Button>
-      </nav>
+      </div>
     </header>
   )
 }

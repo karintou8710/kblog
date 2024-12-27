@@ -21,7 +21,7 @@ export default function UserProfile() {
           <p className='mt-2'>
             このブログは日々の日常を中心に不定期更新します。食べたご飯で埋め尽くされるかもしれない。たまに技術に関するつぶやきをするかも。
           </p>
-          <p className='mt-4'>趣味は模索中。最近は外食とポーカーが好き</p>
+          <p className='mt-4'>趣味は模索中。最近は外食とポーカーが好き。</p>
         </div>
       </div>
     </div>
