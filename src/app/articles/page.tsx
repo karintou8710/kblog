@@ -1,5 +1,6 @@
-import { redirect } from 'next/navigation'
+import PageView from './page/[current]/page-view'
 
+// TODO: ページ同士の依存関係を防ぎたい
 export default function Page() {
-  redirect('/articles/page/1')
+  return <PageView current={1} />
 }
