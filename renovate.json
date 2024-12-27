@@ -3,6 +3,6 @@
   "extends": [
     "config:recommended"
   ],
-  "schedule": [ "0 * * * *" ],
+  "schedule": ["every 1 hour"],
   "prHourlyLimit": 0
 }
