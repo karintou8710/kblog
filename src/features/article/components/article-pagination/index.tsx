@@ -1,5 +1,3 @@
-import path from 'path'
-
 import {
   Pagination,
   PaginationContent,
@@ -10,16 +8,10 @@ import {
 type Props = {
   totalPage: number
   currentPage: number
-  href: string
   className?: string
 }
 
-export default async function ArticlePagination({
-  currentPage,
-  className,
-  href,
-  totalPage,
-}: Props) {
+export default async function ArticlePagination({ currentPage, className, totalPage }: Props) {
   return (
     <Pagination className={className}>
       <PaginationContent>
@@ -27,10 +19,7 @@ export default async function ArticlePagination({
           const page = index + 1
           return (
             <PaginationItem key={page}>
-              <PaginationLink
-                href={path.join(href, `page/${page}`)}
-                isActive={page === currentPage}
-              >
+              <PaginationLink href={`/articles/page/${page}`} isActive={page === currentPage}>
                 {page}
               </PaginationLink>
             </PaginationItem>

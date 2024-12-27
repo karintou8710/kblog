@@ -17,7 +17,6 @@ export default async function PageView({ current }: Props) {
       <ArticlePaginationFetcher
         fetcher={getListWithPagination(page)}
         currentPage={page}
-        href='/articles/'
         className='mt-16'
       />
     </div>
