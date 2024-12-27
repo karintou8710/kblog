@@ -21,7 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "html-react-parser": "^5.1.12",
-    "lucide-react": "^0.426.0",
+    "lucide-react": "^0.469.0",
     "microcms-js-sdk": "^3.1.2",
     "next": "^14.2.5",
     "react": "^18.3.1",
