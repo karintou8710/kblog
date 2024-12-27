@@ -10,6 +10,9 @@ const config = {
   ],
   prefix: '',
   theme: {
+    fontFamily: {
+      sans: ['var(--font-noto-sans-jp)'],
+    },
     container: {
       center: true,
       padding: '2rem',
