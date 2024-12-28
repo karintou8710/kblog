@@ -1,12 +1,8 @@
-import ArticlePaginationFetcher from '@/features/article/components/article-pagination/fetcher'
-import { getList, getListWithPagination, PER_PAGE } from '@/features/article/server/microcms'
-import { getPageNumber } from '@/lib/utils'
+import { getList, PER_PAGE } from '@/features/article/server/microcms'
 
-import ArticleListSection from './_components/article-list-section'
+import PageView from './page-view'
 
-type Props = {
-  params: { current: string }
-}
+type Params = Promise<{ current: string }>
 
 export async function generateStaticParams() {
   const { totalCount } = await getList()
@@ -19,18 +15,9 @@ export async function generateStaticParams() {
   return paths
 }
 
-export default function Page({ params: { current } }: Props) {
-  const page = getPageNumber(Number(current))
+export default async function Page(props: { params: Params }) {
+  const params = await props.params
+  const current = Number(params.current)
 
-  return (
-    <div className='mx-auto my-8 max-w-[1220px] sm:my-16'>
-      <ArticleListSection page={page} />
-      <ArticlePaginationFetcher
-        fetcher={getListWithPagination(page)}
-        currentPage={page}
-        href='/articles/'
-        className='mt-16'
-      />
-    </div>
-  )
+  return <PageView current={current} />
 }

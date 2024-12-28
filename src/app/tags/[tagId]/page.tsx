@@ -1,10 +1,8 @@
 import { getTagsList } from '@/features/article/server/microcms'
 
-import ArticleListFilterByTagPage from './page//[current]/page'
+import PageView from './page/[current]/page-view'
 
-type Props = {
-  params: { tagId: string }
-}
+type Params = Promise<{ tagId: string }>
 
 export async function generateStaticParams() {
   const { contents: tags } = await getTagsList()
@@ -18,6 +16,9 @@ export async function generateStaticParams() {
   return paths
 }
 
-export default function Page({ params: { tagId } }: Props) {
-  return <ArticleListFilterByTagPage params={{ current: '1', tagId: tagId }} />
+// TODO: ページ同士の依存関係を防ぎたい
+export default async function Page(props: { params: Params }) {
+  const params = await props.params
+
+  return <PageView tagId={params.tagId} current={1} />
 }
