@@ -13,9 +13,14 @@
     "lint:eslint": "next lint",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier . --write",
-    "fix:eslint": "next lint --fix"
+    "fix:eslint": "next lint --fix",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.0.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
@@ -28,6 +33,7 @@
     "react-dom": "19.0.0",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "wrangler": "^4.14.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
