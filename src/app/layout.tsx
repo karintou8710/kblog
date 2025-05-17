@@ -23,10 +23,7 @@ export default function RootLayout({
   return (
     <html lang='ja'>
       <body
-        className={cn(
-          'flex min-h-screen flex-col bg-background font-sans antialiased',
-          notoSansJP.variable,
-        )}
+        className={cn('flex min-h-screen flex-col bg-background antialiased', notoSansJP.variable)}
       >
         <Header />
         <main className='grow'>{children}</main>

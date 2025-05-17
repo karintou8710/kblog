@@ -8,9 +8,10 @@ import Navigation from '../navigation'
 export default function Header() {
   return (
     <header className='flex h-14 shrink-0 items-center bg-gray-700 px-6 text-white'>
-      <Link className='text-xl font-bold' href='/'>
+      <Link className='text-xl font-bold hover:opacity-80' href='/'>
         <span>karintouのブログ</span>
       </Link>
+
       <div className='flex-1' />
       <Navigation className='mr-10' />
       <div>
