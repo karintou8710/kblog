@@ -21,7 +21,7 @@ export default function ArticleCard({ post, className }: Props) {
       </Link>
       <CardHeader>
         <Link href={`/articles/${post.id}`}>
-          <CardTitle className='hover:underline'>{post.title}</CardTitle>
+          <CardTitle className='leading-7 hover:underline'>{post.title}</CardTitle>
         </Link>
         <CardDescription>{getReadableDate(new Date(post.publishedAt!))}</CardDescription>
         <div className='mt-6 flex flex-wrap gap-2'>
