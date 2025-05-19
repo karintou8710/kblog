@@ -22,7 +22,7 @@ export default function ArticleDetailHeader({ post, className }: Props) {
           alt='eyecatch'
           fill
           className='object-cover'
-          sizes='400px'
+          sizes='(max-width: 750px) 100vw, 800px'
           loader={microCMSImageLoader}
         />
       </div>
