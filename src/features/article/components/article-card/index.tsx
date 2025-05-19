@@ -22,7 +22,7 @@ export default function ArticleCard({ post, className }: Props) {
           alt='eyecatch'
           fill
           className='object-cover'
-          sizes='500px'
+          sizes='400px'
         />
       </Link>
       <CardHeader>
