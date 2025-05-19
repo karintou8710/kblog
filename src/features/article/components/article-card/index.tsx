@@ -1,9 +1,12 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { LinkBadge } from '@/components/ui/link-badge'
 import { getReadableDate } from '@/lib/date'
+import { microCMSImageLoader } from '@/lib/image'
 import { cn } from '@/lib/utils'
 
 import type { Blog } from '../../types/microcms'
@@ -23,6 +26,7 @@ export default function ArticleCard({ post, className }: Props) {
           fill
           className='object-cover'
           sizes='400px'
+          loader={microCMSImageLoader}
         />
       </Link>
       <CardHeader>

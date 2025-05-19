@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 
 import { LinkBadge } from '@/components/ui/link-badge'
 import { getReadableDate } from '@/lib/date'
+import { microCMSImageLoader } from '@/lib/image'
 
 import type { Blog } from '../../types/microcms'
 
@@ -19,7 +22,8 @@ export default function ArticleDetailHeader({ post, className }: Props) {
           alt='eyecatch'
           fill
           className='object-cover'
-          sizes='1000px'
+          sizes='400px'
+          loader={microCMSImageLoader}
         />
       </div>
       <h1 className='mt-8 text-3xl font-bold md:mt-16'>{post.title}</h1>
