@@ -14,7 +14,13 @@ export default function ArticleDetailHeader({ post, className }: Props) {
   return (
     <div className={className}>
       <div className='relative mx-auto aspect-video w-full'>
-        <Image src={post.eyecatch?.url ?? ''} alt='eyecatch' fill className='object-cover' />
+        <Image
+          src={post.eyecatch?.url ?? ''}
+          alt='eyecatch'
+          fill
+          className='object-cover'
+          sizes='1000px'
+        />
       </div>
       <h1 className='mt-8 text-3xl font-bold md:mt-16'>{post.title}</h1>
       <p className='mt-6'>公開日: {getReadableDate(new Date(post.publishedAt!))}</p>
